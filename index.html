@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Crimson Text', serif;
+            background: #1a1410;
+            color: #e8dcc4;
+            line-height: 1.8;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d1810 0%, #1a1410 100%);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid #8b6f47;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="%238b6f47" stroke-width="0.5" opacity="0.1"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: #d4af37;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: #c9b896;
+            font-style: italic;
+            margin: 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            background: #2d1810;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #8b6f47;
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: #e8dcc4;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        section:nth-child(even) {
+            background: #211612;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #d4af37;
+            margin: 0 0 3rem 0;
+            text-align: center;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b6f47, transparent);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-photo-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #2d1810;
+            border: 3px solid #8b6f47;
+            padding: 1rem;
+            box-shadow: 
+                inset 0 0 20px rgba(0,0,0,0.3),
+                0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .profile-photo-container::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            bottom: 0.5rem;
+            border: 1px solid #d4af37;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .profile-photo-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1410 0%, #2d1810 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .profile-placeholder {
+            width: 120px;
+            height: 120px;
+            opacity: 0.5;
+            transition: stroke 0.3s ease;
+        }
+
+        .about-text-content {
+            font-size: 1.3rem;
+            text-align: left;
+            line-height: 2;
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-photo-container {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .about-text-content {
+                text-align: center;
+            }
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #2d1810;
+            padding: 2.5rem;
+            border: 1px solid #8b6f47;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+        
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+            transition: stroke 0.3s ease;
+        }
+
+        .service-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: #d4af37;
+            margin: 0 0 1rem 0;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+        }
+
+        .service-card p {
+            color: #c9b896;
+            font-size: 1.1rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            background: #2d1810;
+            padding: 2rem;
+            border-left: 3px solid #8b6f47;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .skill-item:hover {
+            border-left-color: #d4af37;
+        }
+
+        .skill-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #d4af37;
+            margin: 0;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .certificate-card {
+            background: #2d1810;
+            padding: 2.5rem;
+            border: 1px solid #8b6f47;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b6f47, #d4af37, #8b6f47);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .certificate-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+        
+        .certificate-icon svg {
+            width: 100%;
+            height: 100%;
+            transition: stroke 0.3s ease;
+        }
+
+        .certificate-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #d4af37;
+            margin: 0 0 1rem 0;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-issuer {
+            color: #c9b896;
+            font-size: 1.05rem;
+            margin: 0.5rem 0;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-year {
+            color: #8b6f47;
+            font-size: 0.95rem;
+            margin: 0.5rem 0 0 0;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: #2d1810;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #8b6f47;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #d4af37;
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem auto;
+            display: block;
+        }
+        
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            transition: stroke 0.3s ease;
+        }
+
+        .contact-item h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #d4af37;
+            margin: 0 0 0.8rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item p {
+            color: #c9b896;
+            font-size: 1.1rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        /* Social Media Section */
+        .social-media-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-item {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #2d1810;
+            border: 2px solid #8b6f47;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-item:hover {
+            border-color: #d4af37;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .social-icon {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+        
+        .social-icon svg {
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .social-item:hover .social-icon svg {
+            transform: scale(1.15);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0a08;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 2px solid #8b6f47;
+            transition: all 0.3s ease;
+        }
+
+        footer p {
+            margin: 0;
+            color: #8b6f47;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2d1810;
+            border: 2px solid #8b6f47;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            color: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .back-to-top svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .services-grid,
+            .skills-container,
+            .certificates-grid,
+            .contact-grid,
+            .social-media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><button id="back-to-top" class="back-to-top" aria-label="Back to top">
+   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15" />
+   </svg></button>
+  <header>
+   <div class="container">
+    <div class="header-content">
+     <h1 id="name">Debayan Kundu</h1>
+     <p class="tagline" id="tagline">Accountant &amp; Data Analytics Specialist</p>
+    </div>
+   </div>
+  </header>
+  <nav>
+   <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#skills">Expertise</a></li>
+    <li><a href="#certificates">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+  <main>
+   <section id="about">
+    <div class="container">
+     <h2>About</h2>
+     <div class="about-content">
+      <div class="profile-photo-container">
+       <div class="profile-photo-inner">
+        <img src="me.jpg" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+       </div>
+      </div>
+      <div class="about-text-content">
+       <p id="about-text">With a passion for financial accounting and data analytics, I am eager to translate complex financial data into clear, actionable insights. I approach challenges by combining fundamental accounting principles with modern analytical techniques, aiming to provide valuable solutions for businesses of all sizes. My goal is to help organizations understand their financial landscape better and make informed decisions that drive growth and efficiency.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="services">
+    <div class="container">
+     <h2>Services</h2>
+     <div class="services-grid">
+      <div class="service-card">
+       <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2"><rect x="20" y="15" width="60" height="70" rx="3" stroke-width="2.5" /> <line x1="30" y1="30" x2="70" y2="30" stroke-width="2" /> <line x1="30" y1="42" x2="70" y2="42" stroke-width="2" /> <line x1="30" y1="54" x2="70" y2="54" stroke-width="2" /> <line x1="30" y1="66" x2="55" y2="66" stroke-width="2" /> <circle cx="65" cy="66" r="3" fill="#d4af37" />
+        </svg>
+       </div>
+       <h3 id="service-1-title">Financial Reporting</h3>
+       <p>Comprehensive financial statements and regulatory compliance reporting with precision and clarity.</p>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><polyline points="15,75 30,60 45,65 60,45 75,50 90,25" stroke-linecap="round" stroke-linejoin="round" /> <polyline points="75,25 90,25 90,40" fill="#d4af37" stroke-linejoin="round" /> <line x1="15" y1="85" x2="90" y2="85" stroke-width="3" /> <line x1="15" y1="20" x2="15" y2="85" stroke-width="3" />
+        </svg>
+       </div>
+       <h3 id="service-2-title">Tax Planning</h3>
+       <p>Strategic tax planning and preparation services to optimize your financial position and ensure compliance.</p>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="15" y="60" width="15" height="25" fill="#8b6f47" stroke="none" /> <rect x="35" y="45" width="15" height="40" fill="#8b6f47" stroke="none" /> <rect x="55" y="35" width="15" height="50" fill="#d4af37" stroke="none" /> <rect x="75" y="50" width="15" height="35" fill="#8b6f47" stroke="none" /> <line x1="10" y1="88" x2="95" y2="88" stroke-width="2" /> <circle cx="25" cy="25" r="8" stroke-width="2" /> <line x1="30" y1="30" x2="45" y2="45" stroke-width="2" /> <circle cx="62" cy="18" r="8" stroke-width="2" /> <line x1="57" y1="23" x2="48" y2="32" stroke-width="2" />
+        </svg>
+       </div>
+       <h3 id="service-3-title">Data Analytics</h3>
+       <p>Advanced data analysis and visualization to uncover insights and drive informed business decisions.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="skills">
+    <div class="container">
+     <h2>Expertise</h2>
+     <div class="skills-container">
+      <div class="skill-item"><span class="skill-name">Financial Analysis</span>
+      </div>
+      <div class="skill-item"><span class="skill-name">Data Visualization</span>
+      </div>
+      <div class="skill-item"><span class="skill-name">Tax Strategy</span>
+      </div>
+      <div class="skill-item"><span class="skill-name">Audit &amp; Compliance</span>
+      </div>
+      <div class="skill-item"><span class="skill-name">Business Intelligence</span>
+      </div>
+      <div class="skill-item"><span class="skill-name">Statistical Modeling</span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="certificates">
+    <div class="container">
+     <h2>Certifications</h2>
+     <div class="certificates-grid">
+      <div class="certificate-card">
+       <div class="certificate-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2"><rect x="15" y="25" width="70" height="55" rx="2" stroke-width="2.5" /> <rect x="20" y="30" width="60" height="45" rx="1" stroke="#8b6f47" stroke-width="1.5" /> <line x1="30" y1="45" x2="70" y2="45" stroke-width="2" /> <line x1="35" y1="55" x2="65" y2="55" stroke-width="1.5" /> <line x1="35" y1="63" x2="65" y2="63" stroke-width="1.5" /> <circle cx="50" cy="15" r="10" stroke-width="2.5" /> <polygon points="50,10 52,16 58,16 53,20 55,26 50,22 45,26 47,20 42,16 48,16" fill="#d4af37" stroke="none" /> <path d="M 40 80 Q 50 85 60 80" stroke-width="2" fill="none" />
+        </svg>
+       </div>
+       <h3>Certified Public Accountant (CPA)</h3>
+       <p class="certificate-issuer">State Board of Accountancy</p>
+       <p class="certificate-year">2015</p>
+      </div>
+      <div class="certificate-card">
+       <div class="certificate-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="20" y="30" width="12" height="45" fill="#8b6f47" stroke="none" /> <rect x="36" y="40" width="12" height="35" fill="#8b6f47" stroke="none" /> <rect x="52" y="25" width="12" height="50" fill="#d4af37" stroke="none" /> <rect x="68" y="35" width="12" height="40" fill="#8b6f47" stroke="none" /> <line x1="15" y1="78" x2="88" y2="78" stroke-width="3" /> <circle cx="50" cy="15" r="8" stroke-width="2.5" /> <path d="M 42 15 L 50 10 L 58 15" fill="none" stroke-width="2" />
+        </svg>
+       </div>
+       <h3>Certified Management Accountant (CMA)</h3>
+       <p class="certificate-issuer">Institute of Management Accountants</p>
+       <p class="certificate-year">2017</p>
+      </div>
+      <div class="certificate-card">
+       <div class="certificate-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="25" y="30" width="50" height="40" rx="2" stroke-width="2.5" /> <line x1="25" y1="45" x2="75" y2="45" stroke-width="2" /> <circle cx="42" cy="38" r="3" fill="#d4af37" /> <circle cx="58" cy="38" r="3" fill="#d4af37" /> <rect x="32" y="52" width="36" height="4" fill="#8b6f47" stroke="none" /> <rect x="32" y="60" width="25" height="3" fill="#8b6f47" stroke="none" /> <path d="M 35 20 L 50 10 L 65 20" fill="none" stroke-width="2.5" /> <line x1="50" y1="10" x2="50" y2="30" stroke-width="2.5" />
+        </svg>
+       </div>
+       <h3>Chartered Financial Analyst (CFA)</h3>
+       <p class="certificate-issuer">CFA Institute</p>
+       <p class="certificate-year">2019</p>
+      </div>
+      <div class="certificate-card">
+       <div class="certificate-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><circle cx="50" cy="40" r="25" stroke-width="3" /> <path d="M 35 40 Q 50 55 65 40" fill="none" stroke-width="2.5" /> <circle cx="40" cy="35" r="3" fill="#d4af37" /> <circle cx="60" cy="35" r="3" fill="#d4af37" /> <polyline points="30,65 40,75 50,70 60,78 70,68" stroke-width="2.5" fill="none" /> <line x1="25" y1="82" x2="75" y2="82" stroke-width="2" />
+        </svg>
+       </div>
+       <h3>Data Analytics Certificate</h3>
+       <p class="certificate-issuer">Professional Analytics Institute</p>
+       <p class="certificate-year">2021</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="contact">
+    <div class="container">
+     <h2>Contact</h2>
+     <div class="contact-grid">
+      <div class="contact-item">
+       <div class="contact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="15" y="25" width="70" height="50" rx="3" stroke-width="3" /> <path d="M 15 25 L 50 55 L 85 25" stroke-width="3" stroke-linejoin="round" fill="none" /> <line x1="15" y1="75" x2="40" y2="55" stroke-width="2.5" /> <line x1="85" y1="75" x2="60" y2="55" stroke-width="2.5" />
+        </svg>
+       </div>
+       <h3>Email</h3>
+       <p id="email">a.sterling@example.com</p>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><path d="M 30 25 Q 25 25 25 30 L 25 40 Q 25 42 27 43 L 35 47 Q 37 48 38 50 L 42 58 Q 43 60 45 60 L 55 60 Q 57 60 58 58 L 62 50 Q 63 48 65 47 L 73 43 Q 75 42 75 40 L 75 30 Q 75 25 70 25 L 30 25 Z" stroke-width="3" fill="none" /> <path d="M 45 60 L 45 75 L 35 75" stroke-width="3" stroke-linecap="round" /> <path d="M 55 60 L 55 75 L 65 75" stroke-width="3" stroke-linecap="round" /> <line x1="30" y1="75" x2="70" y2="75" stroke-width="3" stroke-linecap="round" /> <circle cx="40" cy="35" r="2" fill="#d4af37" /> <circle cx="50" cy="35" r="2" fill="#d4af37" /> <circle cx="60" cy="35" r="2" fill="#d4af37" />
+        </svg>
+       </div>
+       <h3>Phone</h3>
+       <p id="phone">+1 (555) 123-4567</p>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><path d="M 50 20 Q 30 20 30 40 Q 30 60 50 80 Q 70 60 70 40 Q 70 20 50 20 Z" stroke-width="3" fill="none" /> <circle cx="50" cy="42" r="8" stroke-width="3" fill="#d4af37" /> <circle cx="50" cy="42" r="3" fill="#1a1410" />
+        </svg>
+       </div>
+       <h3>Location</h3>
+       <p id="location">New York, NY</p>
+      </div>
+     </div>
+     <div class="social-media-container"><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-item" aria-label="LinkedIn">
+       <div class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="20" y="20" width="60" height="60" rx="8" stroke-width="3" /> <rect x="30" y="45" width="10" height="25" fill="#d4af37" stroke="none" /> <circle cx="35" cy="35" r="4" fill="#d4af37" stroke="none" /> <path d="M 48 50 Q 48 45 53 45 Q 58 45 58 50 L 58 70 L 68 70 L 68 48 Q 68 40 60 40 Q 53 40 48 45" fill="#d4af37" stroke="none" />
+        </svg>
+       </div></a> <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-item" aria-label="YouTube">
+       <div class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="15" y="30" width="70" height="40" rx="6" stroke-width="3" /> <path d="M 42 42 L 42 58 L 60 50 Z" fill="#d4af37" stroke="none" /> <circle cx="25" cy="25" r="3" fill="#d4af37" stroke="none" /> <circle cx="75" cy="25" r="3" fill="#d4af37" stroke="none" />
+        </svg>
+       </div></a> <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-item" aria-label="Instagram">
+       <div class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><rect x="20" y="20" width="60" height="60" rx="12" stroke-width="3" /> <circle cx="50" cy="50" r="15" stroke-width="3" /> <circle cx="68" cy="32" r="4" fill="#d4af37" stroke="none" />
+        </svg>
+       </div></a> <a href="https://mastodon.social" target="_blank" rel="noopener noreferrer" class="social-item" aria-label="Mastodon">
+       <div class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="2.5"><path d="M 30 35 Q 30 25 40 25 L 60 25 Q 70 25 70 35 L 70 55 Q 70 65 60 70 L 75 75" stroke-width="3" stroke-linecap="round" /> <path d="M 30 55 Q 30 65 40 70 L 25 75" stroke-width="3" stroke-linecap="round" /> <line x1="30" y1="35" x2="30" y2="55" stroke-width="3" /> <line x1="70" y1="35" x2="70" y2="55" stroke-width="3" /> <circle cx="42" cy="42" r="3" fill="#d4af37" stroke="none" /> <circle cx="58" cy="42" r="3" fill="#d4af37" stroke="none" />
+        </svg>
+       </div></a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container">
+    <p>Thank You Visit Again</p>
+   </div>
+  </footer>
+  <script>
+        const defaultConfig = {
+            background_color: '#1a1410',
+            surface_color: '#2d1810',
+            text_color: '#e8dcc4',
+            primary_action_color: '#d4af37',
+            secondary_action_color: '#8b6f47',
+            font_family: 'Crimson Text',
+            font_size: 16,
+            name: 'Debayan Kundu',
+            tagline: 'Accountant & Data Analytics Specialist',
+            about_text: 'With a passion for financial accounting and data analytics, I am eager to translate complex financial data into clear, actionable insights. I approach challenges by combining fundamental accounting principles with modern analytical techniques, aiming to provide valuable solutions for businesses of all sizes. My goal is to help organizations understand their financial landscape better and make informed decisions that drive growth and efficiency.',
+            service_1_title: 'Financial Reporting',
+            service_2_title: 'Tax Planning',
+            service_3_title: 'Data Analytics',
+            email: 'a.sterling@example.com',
+            phone: '+1 (555) 123-4567',
+            location: 'Malda, West Bengal'
+        };
+
+        // Smooth Scroll Navigation
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Back to Top Button Functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top when clicked
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        async function onConfigChange(config) {
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            const fontFamily = config.font_family || defaultConfig.font_family;
+            const fontSize = config.font_size || defaultConfig.font_size;
+
+            document.body.style.backgroundColor = backgroundColor;
+            document.body.style.color = textColor;
+            document.body.style.fontFamily = `${fontFamily}, 'Crimson Text', serif`;
+            document.body.style.fontSize = `${fontSize}px`;
+
+            const sections = document.querySelectorAll('section:nth-child(even)');
+            sections.forEach(section => {
+                section.style.backgroundColor = surfaceColor;
+            });
+
+            const header = document.querySelector('header');
+            header.style.background = `linear-gradient(135deg, ${surfaceColor} 0%, ${backgroundColor} 100%)`;
+            header.style.borderBottomColor = secondaryActionColor;
+
+            const nav = document.querySelector('nav');
+            nav.style.backgroundColor = surfaceColor;
+            nav.style.borderBottomColor = secondaryActionColor;
+
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.style.color = textColor;
+            });
+
+            const h1 = document.querySelector('h1');
+            h1.style.color = primaryActionColor;
+            h1.style.fontSize = `${fontSize * 2.2}px`;
+
+            const tagline = document.querySelector('.tagline');
+            tagline.style.fontSize = `${fontSize * 0.875}px`;
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(h2 => {
+                h2.style.color = primaryActionColor;
+                h2.style.fontSize = `${fontSize * 1.56}px`;
+            });
+
+            const aboutTextContent = document.querySelector('.about-text-content');
+            aboutTextContent.style.fontSize = `${fontSize * 0.8125}px`;
+
+            const profileContainer = document.querySelector('.profile-photo-container');
+            profileContainer.style.backgroundColor = surfaceColor;
+            profileContainer.style.borderColor = secondaryActionColor;
+
+            const profileInner = document.querySelector('.profile-photo-inner');
+            profileInner.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%)`;
+
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.style.backgroundColor = surfaceColor;
+                card.style.borderColor = secondaryActionColor;
+            });
+
+            const serviceH3 = document.querySelectorAll('.service-card h3');
+            serviceH3.forEach(h3 => {
+                h3.style.color = primaryActionColor;
+                h3.style.fontSize = `${fontSize}px`;
+            });
+
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                item.style.backgroundColor = surfaceColor;
+                item.style.borderLeftColor = secondaryActionColor;
+            });
+
+            const skillNames = document.querySelectorAll('.skill-name');
+            skillNames.forEach(name => {
+                name.style.color = primaryActionColor;
+                name.style.fontSize = `${fontSize * 0.75}px`;
+            });
+
+            const certificateCards = document.querySelectorAll('.certificate-card');
+            certificateCards.forEach(card => {
+                card.style.backgroundColor = surfaceColor;
+                card.style.borderColor = secondaryActionColor;
+            });
+
+            const certificateH3 = document.querySelectorAll('.certificate-card h3');
+            certificateH3.forEach(h3 => {
+                h3.style.color = primaryActionColor;
+                h3.style.fontSize = `${fontSize * 0.875}px`;
+            });
+
+            const certificateIssuers = document.querySelectorAll('.certificate-issuer');
+            certificateIssuers.forEach(issuer => {
+                issuer.style.fontSize = `${fontSize * 0.65625}px`;
+            });
+
+            const certificateYears = document.querySelectorAll('.certificate-year');
+            certificateYears.forEach(year => {
+                year.style.color = secondaryActionColor;
+                year.style.fontSize = `${fontSize * 0.59375}px`;
+            });
+
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.style.backgroundColor = surfaceColor;
+                item.style.borderColor = secondaryActionColor;
+            });
+
+            const contactH3 = document.querySelectorAll('.contact-item h3');
+            contactH3.forEach(h3 => {
+                h3.style.color = primaryActionColor;
+                h3.style.fontSize = `${fontSize * 0.8125}px`;
+            });
+
+            const socialItems = document.querySelectorAll('.social-item');
+            socialItems.forEach(item => {
+                item.style.backgroundColor = surfaceColor;
+                item.style.borderColor = secondaryActionColor;
+            });
+
+            const footer = document.querySelector('footer');
+            footer.style.borderTopColor = secondaryActionColor;
+
+            const footerP = document.querySelector('footer p');
+            footerP.style.color = secondaryActionColor;
+
+            document.getElementById('name').textContent = config.name || defaultConfig.name;
+            document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+            document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+            document.getElementById('service-1-title').textContent = config.service_1_title || defaultConfig.service_1_title;
+            document.getElementById('service-2-title').textContent = config.service_2_title || defaultConfig.service_2_title;
+            document.getElementById('service-3-title').textContent = config.service_3_title || defaultConfig.service_3_title;
+            document.getElementById('email').textContent = config.email || defaultConfig.email;
+            document.getElementById('phone').textContent = config.phone || defaultConfig.phone;
+            document.getElementById('location').textContent = config.location || defaultConfig.location;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.surface_color || defaultConfig.surface_color,
+                        set: (value) => {
+                            config.surface_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                        set: (value) => {
+                            config.primary_action_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                        set: (value) => {
+                            config.secondary_action_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ['name', config.name || defaultConfig.name],
+                ['tagline', config.tagline || defaultConfig.tagline],
+                ['about_text', config.about_text || defaultConfig.about_text],
+                ['service_1_title', config.service_1_title || defaultConfig.service_1_title],
+                ['service_2_title', config.service_2_title || defaultConfig.service_2_title],
+                ['service_3_title', config.service_3_title || defaultConfig.service_3_title],
+                ['email', config.email || defaultConfig.email],
+                ['phone', config.phone || defaultConfig.phone],
+                ['location', config.location || defaultConfig.location]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a28bd8ac7e0a74d',t:'MTc2MzgxNzc5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
